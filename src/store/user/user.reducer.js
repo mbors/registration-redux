@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 //import { User } from './User.model';
-import { UserAction } from './user.actions';
+import { UserActionsType } from './user.actions';
 
 const localStorageUser = localStorage.getItem('user')
 
@@ -17,7 +17,7 @@ export const SaveUserReducer = (state, action) => {
       ...state,
       email: action.payload.email,
       password: action.payload.password
-    };
+    }
   }
   return state
 }
@@ -25,7 +25,7 @@ export const SaveUserReducer = (state, action) => {
 
 export const userReducer = handleActions(
   {
-    [UserAction.REGISTER]: SaveUserReducer,
+    [UserActionsType.REGISTER_USER]: SaveUserReducer,
   },
   initialState
 );
