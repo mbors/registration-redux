@@ -5,14 +5,6 @@ import { bindActionCreators } from 'redux';
 
 import { MessageAction } from './redux/message.actions'
 
-
-// @connect(
-//     (state: RootState) => ({
-//         content: state.components.message.content,
-//         timeout: state.components.message.timeout,
-//     }),
-// )
-
 export class Message extends Component {
     render() {
         if (this.props.content)
