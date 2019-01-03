@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import * as style from './style.css';
+import './style.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { LoaderAction } from './redux/loader.actions'
 
-
 class Loader extends Component {
+
     render() {
-        if (this.props.visible)
+        console.log('props visibility ', this.props.visibility)
+        if (this.props.visibility){
             return (
-                <div className={style.loaderContainer}>
-                    <div className={style.loader} />
+                <div className='loaderContainer'>
+                    <div className='loader' />
                 </div>)
-        else return (<noscript />)
+        } else return (<noscript />)
     }
 }
 
