@@ -11,7 +11,6 @@ export function* saveUser(action) {
     return
   }
 
-
   //simple validation 
   if (!action.payload.email.includes('@') && action.payload.password.length === 0) {
     yield put(MessageAction.setMessage('Invalid email & invalid password'))
@@ -23,8 +22,6 @@ export function* saveUser(action) {
     yield put(MessageAction.setMessage('Invalid password' ))
     return
   }
-
-
 
   yield put(LoaderAction.setVisibility(true))
   const success = yield new Promise(resolve => {
@@ -40,7 +37,6 @@ export function* saveUser(action) {
   } else {
     yield put(MessageAction.setMessage('Connection error'))
   }
-
 }
 
 export default function* () {
