@@ -8,6 +8,7 @@ height: 4em;
 border-radius: 5px;
 display: inline-block;
 border: none;
+color: white; 
 ${props =>
         props.primary &&
         css`

@@ -10,7 +10,7 @@ const initialState = {
 
 export const SaveUserReducer = (state, action) => {
   if (action.payload) {
-    localStorage.setItem('user', { email: action.payload.email, password: action.payload.password });
+    localStorage.setItem('user', JSON.stringify({ email: action.payload.email, password: action.payload.password }));
     return {
       ...state,
       email: action.payload.email,
@@ -20,10 +20,20 @@ export const SaveUserReducer = (state, action) => {
   return state
 }
 
+export const RemoveUser = (state, action) => {
+  if (action.payload) {
+    localStorage.clear();
+    return {
+    }
+  }
+  return state
+}
+
 
 export const userReducer = handleActions(
   {
-    [UserActionsType.SAVE]: SaveUserReducer
+    [UserActionsType.SAVE]: SaveUserReducer,
+    [UserActionsType.LOGOUT] : RemoveUser,
   },
   initialState
 );

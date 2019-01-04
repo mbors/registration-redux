@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from './store';
 import { createBrowserHistory } from 'history';
 import Main from './containers/App/index';
-import WelcomePage from './components/WelcomePage/WelcomePage';
+import Welcome from './containers/Welcome/index';
 
 const history = createBrowserHistory();
 const store = configureStore();
@@ -18,7 +18,7 @@ export default class App extends Component {
         <Router history={history}>
           <div>
             <Route exact path="/" component={Main} />
-            <Route path="/welcome" component={WelcomePage} />
+            <Route path="/welcome" component={Welcome} />
           </div>
         </Router >
       </Provider>

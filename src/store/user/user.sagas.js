@@ -23,9 +23,6 @@ export function* saveUser(action) {
   }
 
   yield put(UserAction.save(action.payload))
-  //set user to be listened from the user reducer
-  //there are two actions: one is listened by the saga, another one is thrown by the saga when the 
-  //saga ends
 }
 
 export default function* () {
