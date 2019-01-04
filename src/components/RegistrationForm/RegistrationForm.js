@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../../elements/Button/Button';
+import { Button } from '../../elements/Button/Button';
 import './style.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -19,12 +19,12 @@ class RegistrationForm extends Component {
     render() {
         return (
             <div className="mainContainer">
-                    <div className="container">
-                        <form>
-                            <input type="text" placeholder="Email" onChange={this.handleEmailChange} />
-                            <input type="text" placeholder="Password" onChange={this.handlePasswordChange} />
-                            <Button onClick={this.handleSubmit} text="Register" />
-                        </form>
+                <div className="container">
+                    <form>
+                        <input type="text" placeholder="Email" onChange={this.handleEmailChange} />
+                        <input type="text" placeholder="Password" onChange={this.handlePasswordChange} />
+                        <Button primary onClick={this.handleSubmit}>Register</Button>
+                    </form>
                 </div>
             </div >
         )
