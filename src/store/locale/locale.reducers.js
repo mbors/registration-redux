@@ -1,30 +1,23 @@
-import { handleActions } from 'redux-actions'
-import * as actions from './locale.actions'
-import translation from '../../../translation'
+import { handleActions } from 'redux-actions';
+import { LocaleActionType } from './locale.actions';
 
-const LOCALES = Object.keys(translation)
+const initialState = {
+  lang: 'en-EN'
+};
 
-export const DEFAULT_STATE = {
-  code: LOCALES[0]
-}
-
-export const setLocale = (state, { payload }) => {
-  if (LOCALES.indexOf(payload) === -1)
-    return state
-  
-  return {
-    code: payload
+export const SetLocale = (state, action) => {
+  if (action.payload) {
+    return {
+      ...state,
+      lang: action.payload,
+    };
   }
+  return state
 }
 
-const reducers = handleActions(
+export const localeReducer = handleActions(
   {
-    [actions.setLocale.type]: setLocale
+    [LocaleActionType.SET_LOCALE]: SetLocale,
   },
-  DEFAULT_STATE
-)
-
-export default {
-  STATE_KEY: 'locale',
-  reducers
-}
+  initialState
+);

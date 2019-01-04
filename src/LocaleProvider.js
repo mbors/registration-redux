@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import enLocaleData from 'react-intl/locale-data/en'
-import itLocaleData from 'react-intl/locale-data/it'
-import { addLocaleData, IntlProvider } from 'react-intl'
-import messages from '../translation'
-import { getLocale } from './store/locale/locale.selectors'
-import Footer from './ui/organisms/Footer'
-import { setLocale } from './store/locale/locale.actions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import enLocaleData from 'react-intl/locale-data/en';
+import itLocaleData from 'react-intl/locale-data/it';
+import { addLocaleData, IntlProvider } from 'react-intl';
+import messages from '../translation';
+import { getLocale } from './store/locale/locale.selectors';
+import { LocaleAction } from './store/locale/locale.actions';
+import Footer from './ui/components/Footer';
 
 const LOCALES = Object.keys(messages)
 
@@ -27,15 +28,13 @@ class LocaleProvider extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  locale: getLocale(state)
-})
-
-const mapDispatchToProps = (dispatch) => ({
-  setLocale: locale => dispatch(setLocale(locale))
-})
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  (state) => ({
+    locale: getLocale(state),
+  }),
+  (dispatch) => {
+    return ({
+      setLocale: bindActionCreators(LocaleAction, dispatch).setLocale,
+    })
+  }
 )(LocaleProvider)

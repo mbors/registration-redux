@@ -1,6 +1,9 @@
-import {decoreAction} from '../decorators'
+import { createAction } from "redux-actions";
 
-export const setLocale = decoreAction((locale) => ({ 
-  type: 'SET_LOCALE',
-  payload: locale
-}))
+export const LocaleActionType = {
+  SET_LOCALE: 'SET_LOCALE'
+};
+
+export const LocaleAction = {
+  setLocale: createAction(LocaleActionType.SET_LOCALE)
+}

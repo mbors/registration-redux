@@ -7,6 +7,7 @@ import { configureStore } from './store';
 import { createBrowserHistory } from 'history';
 import Main from './containers/App/index';
 import Welcome from './containers/Welcome/index';
+import LocaleProvider from './LocaleProvider';
 
 const history = createBrowserHistory();
 const store = configureStore();
@@ -59,8 +60,10 @@ export default class App extends Component {
       <Provider store={store}>
         <Router history={history}>
           <Switch>
+          <LocaleProvider>
             <PrivateRoute path="/" exact component={Main} />
             <LogRedirectRoute path="/welcome" component={Welcome} />
+            </LocaleProvider>
           </Switch>
         </Router>
       </Provider>
