@@ -21,12 +21,12 @@ class Main extends React.Component {
         } else {
             return (
                 <div>
-                    <WelcomePage />
+                    <WelcomePage/>
                 </div>
             )
         }
-
     }
+
 }
 
 export default connect(
