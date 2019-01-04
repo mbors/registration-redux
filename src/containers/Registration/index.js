@@ -84,6 +84,7 @@ export default connect(
 Registration.propTypes = {
     email: PropTypes.string,
     password: PropTypes.string,
+    onClick: PropTypes.func,
 }
 
 

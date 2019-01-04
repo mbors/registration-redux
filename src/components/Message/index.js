@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { MessageAction } from './redux/message.actions'
 
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 const MsgContainer = styled.div`
 margin-top: 30px; 
@@ -38,3 +39,7 @@ export default connect(
         })
     }
 )(Message)
+
+Message.propTypes = {
+    content: PropTypes.string,
+  }

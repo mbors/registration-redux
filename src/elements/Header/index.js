@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import PropTypes from 'prop-types';
 
 const AppHeader = styled.div`
 margin-top: 30px; 
@@ -19,3 +20,6 @@ export default class Header extends Component {
     }
 }
 
+Header.propTypes = {
+    title: PropTypes.string,
+  }

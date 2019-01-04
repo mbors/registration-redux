@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { UserAction } from '../../store/user/user.actions';
 import styled from 'styled-components'
 import Header from '../../elements/Header/index';
+import PropTypes from 'prop-types';
 
 const AppWrapper = styled.div`
     display: flex; 
@@ -26,7 +27,6 @@ class Welcome extends Component {
     handleLogout = (e) => {
         e.preventDefault();
         this.props.logout && this.props.logout({})
-        this.props.history.push('/')
     }
 }
 
@@ -41,3 +41,9 @@ export default connect(
         })
     }
 )((Welcome))
+
+Welcome.propTypes = {
+    logout: PropTypes.func,
+    onClick: PropTypes.func,    
+  }
+

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types';
 
 export const Button = styled.button`
 background: black;
@@ -16,3 +17,7 @@ ${props =>
         color: white;
   `};
 `
+
+Button.propTypes = {
+  primary: PropTypes.any,
+}
