@@ -6,7 +6,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <Registration history={this.props.history} />
+                <Registration />
                 <Message />
             </div>
         );

@@ -1,4 +1,3 @@
-import * as style from './style.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -9,8 +8,8 @@ export class Message extends Component {
     render() {
         if (this.props.content)
             return (
-                <div className={style.alert}>
-                    <p className={style.alertText}>{this.props.content}</p>
+                <div>
+                    <p>{this.props.content}</p>
                 </div>)
         else return (<noscript />)
     }
