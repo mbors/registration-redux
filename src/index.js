@@ -7,16 +7,15 @@ import { configureStore } from './store';
 import { createBrowserHistory } from 'history';
 import Main from './containers/App/index';
 import Welcome from './containers/Welcome/index';
-import { connect } from 'react-redux';
 
 const history = createBrowserHistory();
 const store = configureStore();
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     }
   }
 
@@ -25,14 +24,14 @@ class App extends Component {
   }
 
   isLogged() {
-    const { user } = store.getState();
-    return (user.email === '' && user.password === '');
+    const user = localStorage.getItem('user')
+    let isLogged = user === null ? false : true
+    return isLogged
   }
 
   render() {
     const unsubscribe = store.subscribe(() => {
-      if (this.state.logged !== this.isLogged())
-        this.setState({ logged: this.isLogged() })
+      this.setState({ logged: this.isLogged() })
     })
     const PrivateRoute = ({ component: Component, ...rest }) => (
       <Route {...rest} render={props => (
@@ -69,11 +68,7 @@ class App extends Component {
   }
 }
 
-export default connect(
-  (state) => ({
-      user: state.user,
-  }),
-)(App)
+
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

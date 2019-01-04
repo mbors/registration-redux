@@ -38,12 +38,6 @@ class Registration extends Component {
         };
     }
 
-    componentWillMount() {
-        const user = localStorage.getItem('user');
-        if (user !== null) {
-            this.props.history.push('/welcome')
-        }
-    }
 
     render() {
         return (
@@ -73,9 +67,6 @@ class Registration extends Component {
             email: this.state.email,
             password: this.state.password
         })
-        if (this.state.email !== '' && this.state.password !== '') {
-            this.props.history.push('/welcome')
-        }
     }
 }
 

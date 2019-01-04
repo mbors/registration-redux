@@ -24,6 +24,7 @@ export const RemoveUser = (state, action) => {
   if (action.payload) {
     localStorage.clear();
     return {
+
     }
   }
   return state

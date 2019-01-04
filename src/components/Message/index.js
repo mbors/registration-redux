@@ -4,13 +4,25 @@ import { bindActionCreators } from 'redux';
 
 import { MessageAction } from './redux/message.actions'
 
+import styled from 'styled-components'
+
+const MsgContainer = styled.div`
+margin-top: 30px; 
+margin-bottom: 30px;
+`
+const MsgContent = styled.p`
+font-weight: 800;
+`
+
+
 export class Message extends Component {
     render() {
         if (this.props.content)
             return (
-                <div>
-                    <p>{this.props.content}</p>
-                </div>)
+                <MsgContainer>
+                    <MsgContent>{this.props.content}</MsgContent>
+                </MsgContainer>
+            )
         else return (<noscript />)
     }
 }
