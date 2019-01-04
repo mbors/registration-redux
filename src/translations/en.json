@@ -1,0 +1,8 @@
+{
+    "form.username": "username", 
+    "form.password": "password", 
+    "form.register": "register", 
+    "form.incorrectEmail": "This email address is invalid", 
+    "form.incorrectPassword": "This password is too short", 
+    "welcome.wlecome": "welcome"
+  }
