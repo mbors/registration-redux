@@ -2,9 +2,7 @@ import { handleActions } from 'redux-actions';
 //import { User } from './User.model';
 import { UserActionsType } from './user.actions';
 
-const localStorageUser = localStorage.getItem('user')
-
-const initialState = localStorageUser ? localStorageUser : {
+const initialState = {
   email: '',
   password: ''
 }

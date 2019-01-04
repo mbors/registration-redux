@@ -5,8 +5,8 @@ import { Route, Router } from 'react-router';
 import { Provider } from 'react-redux';
 import { configureStore } from './store';
 import { createBrowserHistory } from 'history';
-import  Main  from './containers/App/index';
-
+import Main from './containers/App/index';
+import WelcomePage from './components/WelcomePage/WelcomePage';
 
 const history = createBrowserHistory();
 const store = configureStore();
@@ -16,7 +16,10 @@ export default class App extends Component {
     return (
       <Provider store={store}>
         <Router history={history}>
-            <Route path="/" component={Main} />
+          <div>
+            <Route exact path="/" component={Main} />
+            <Route path="/welcome" component={WelcomePage} />
+          </div>
         </Router >
       </Provider>
     );
