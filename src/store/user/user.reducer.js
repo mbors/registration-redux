@@ -25,7 +25,7 @@ export const SaveUserReducer = (state, action) => {
 
 export const userReducer = handleActions(
   {
-    [UserActionsType.REGISTER]: SaveUserReducer
+    [UserActionsType.SAVE]: SaveUserReducer
   },
   initialState
 );

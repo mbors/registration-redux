@@ -2,12 +2,12 @@ import { createAction } from "redux-actions";
 
 export const UserActionsType = {
   REGISTER: 'REGISTER',
-  LOGIN: 'LOGIN_USER',
+  SAVE: 'SAVE',
   LOGOUT: 'LOGOUT',
 };
 
 export const UserAction = {
   register: createAction(UserActionsType.REGISTER),
-  login: createAction(UserActionsType.LOGIN),
+  save: createAction(UserActionsType.SAVE),
   logout: createAction(UserActionsType.LOGOUT),
 }
